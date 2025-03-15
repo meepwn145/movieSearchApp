@@ -1,0 +1,34 @@
+body {
+  background-image: url('/eee.webp'); /* First image is on top */
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(168, 38, 38);
+  min-height: 100vh;
+}
+
+
+* {
+  color: white; /* Make all text white by default */
+}
+
+#app {
+  color: white;
+}
+
+/* Override for search component */
+.search-component,
+.search-component input,
+.search-component button {
+  color: black !important; /* Override to black for search */
+}
+
+
+.search-component input::placeholder {
+  color: #666; /* Optional: Change placeholder color if needed */
+}
