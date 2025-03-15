@@ -13,17 +13,11 @@
         </div>
       </header>
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <div class="relative w-full max-w-2xl mx-auto flex flex-col items-center justify-center min-h-[70vh]">
                 <!-- Recommendations -->
                 <div v-if="!hasSearched && recommendations.length" class="w-full mt-6">
-        <h2 class="recommendation-title">
-          🍿 Here's some recommendations of movies:
-        </h2>
+        <p class="section-header">🍿 Here's some recommendations of movies:</p>
+
 
         <div class="recommendation-grid">
             <div 
@@ -116,7 +110,7 @@ export default {
         'Forrest Gump'
       ];
 
-      const shuffledTitles = sampleTitles.sort(() => 0.5 - Math.random()).slice(0, 3);
+      const shuffledTitles = sampleTitles.sort(() => 0.5 - Math.random()).slice(0, 4);
 
       try {
         this.recommendations = [];
@@ -154,7 +148,7 @@ export default {
   left: 0;
   right: 0;
   height: 70px; 
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.6); 
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -164,6 +158,20 @@ export default {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+.section-header {
+  background-color: rgba(100, 30, 22, 0.5); 
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto; 
+  display: table; 
+}
+
+
+
 /* Center search bar */
 .search-bar-wrapper {
   position: absolute;
@@ -172,7 +180,7 @@ export default {
 }
 /* Title style */
 .movie-app-title {
-  background-color: rgba(120, 40, 31, 0.7); 
+  background-color: rgba(100, 30, 22, 0.6); 
   color: white;
   font-weight: bold;
   padding: 10px 20px;
@@ -195,22 +203,28 @@ export default {
   margin-top: 1rem;
   text-align: center;
 }
-
 .recommendation-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: nowrap; /* Ensure posters stay in a single row */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   gap: 20px;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  padding: 10px;
 }
 
 .movie-card {
+  flex: 0 0 auto; /* Prevent shrinking */
+  width: 200px;
   background-color: #f3f3f3;
-  padding: 16px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  width: 320px;
-  text-align: center;
   transition: box-shadow 0.3s ease;
+  text-align: center;
+}
+.recommendation-grid div {
+  cursor: pointer; 
 }
 
 .movie-card:hover {
@@ -219,22 +233,23 @@ export default {
 
 .movie-poster {
   width: 100%;
-  height: 400px;
+  height: 300px;
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 12px;
 }
 
 .movie-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #2d2d2d;
+  margin-top: 8px;
 }
 
 .movie-year {
   font-size: 14px;
   color: #555;
 }
+
 
 /* Content wrapper padding to prevent overlap */
 .content-wrapper {

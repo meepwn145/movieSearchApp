@@ -1,8 +1,8 @@
 body {
-  background-image: url('/eee.webp'); /* First image is on top */
-  background-size: cover, cover;
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
+  background-image: url('/eee.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,7 +10,12 @@ body {
   align-items: center;
   color: rgb(168, 38, 38);
   min-height: 100vh;
+  
+  /* Add a transparent overlay */
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% transparency */
+  background-blend-mode: overlay; /* Blends the color and the image */
 }
+
 
 
 * {
